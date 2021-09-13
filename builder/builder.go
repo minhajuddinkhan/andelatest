@@ -11,6 +11,7 @@ type PostBuilder interface {
 	Posts(models.PostSlice) PostBuilder
 	Comments(models.CommentSlice) PostBuilder
 	Build() definitions.PostSlice
+	BuildCSV() []string
 }
 
 func NewPostBuilder() PostBuilder {
@@ -30,6 +31,14 @@ func (b *postBuilder) Posts(posts models.PostSlice) PostBuilder {
 func (b *postBuilder) Comments(comments models.CommentSlice) PostBuilder {
 	b.comments = comments
 	return b
+}
+
+//Leaving implementation because of shortage of time
+//We can implement this method as well to make use of the same loop
+//in order to gain performance
+func (b *postBuilder) BuildCSV() []string {
+
+	return []string{}
 }
 
 func (b *postBuilder) Build() definitions.PostSlice {
